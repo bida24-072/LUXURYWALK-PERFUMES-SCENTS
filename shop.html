@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Luxury Walk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="index.html" class="logo">LUXURY WALK</a>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="shop.html" class="active">Collection</a>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>The Collection</h1>
+        <p>Discover your signature scent.</p>
+    </div>
+
+    <section class="section">
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=800&auto=format&fit=crop" alt="Oud Wood">
+                    <span class="badge">Best Seller</span>
+                </div>
+                <div class="product-info">
+                    <h3>Midnight Oud</h3>
+                    <p class="notes">Amber / Sandalwood / Vanilla</p>
+                    <p class="price">P 850</p>
+                    <button class="whatsapp-btn" onclick="orderViaWhatsApp('Midnight Oud', 'P 850')">Order via WhatsApp</button>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1582211594531-ef84e8acaf76?q=80&w=800&auto=format&fit=crop" alt="Golden Spray">
+                </div>
+                <div class="product-info">
+                    <h3>Gilded Rose</h3>
+                    <p class="notes">Damascus Rose / Saffron / Musk</p>
+                    <p class="price">P 720</p>
+                    <button class="whatsapp-btn" onclick="orderViaWhatsApp('Gilded Rose', 'P 720')">Order via WhatsApp</button>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=800&auto=format&fit=crop" alt="Dark Bottle">
+                </div>
+                <div class="product-info">
+                    <h3>Noir Intense</h3>
+                    <p class="notes">Black Pepper / Leather / Vetiver</p>
+                    <p class="price">P 950</p>
+                    <button class="whatsapp-btn" onclick="orderViaWhatsApp('Noir Intense', 'P 950')">Order via WhatsApp</button>
+                </div>
+            </div>
+             <!-- Product 4 -->
+             <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=800&auto=format&fit=crop" alt="Fresh Bottle">
+                </div>
+                <div class="product-info">
+                    <h3>Oceanic Breeze</h3>
+                    <p class="notes">Sea Salt / Bergamot / Cedar</p>
+                    <p class="price">P 680</p>
+                    <button class="whatsapp-btn" onclick="orderViaWhatsApp('Oceanic Breeze', 'P 680')">Order via WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>LUXURY WALK</h2>
+        <p>Gaborone, Botswana</p>
+    </footer>
+
+    <a href="https://wa.me/267XXXXXXXXX" class="floating-wa">
+        <svg viewBox="0 0 32 32" width="35" height="35" fill="currentColor"><path d="M16 0A16 16 0 0 0 0 16c0 2.8.7 5.5 2 7.8L0 32l8.4-2.2A15.9 15.9 0 0 0 16 32a16 16 0 0 0 16-16A16 16 0 0 0 16 0zm0 29.3c-2.4 0-4.8-.6-6.8-1.9l-.5-.3-5 1.3 1.3-4.9-.3-.5A13.3 13.3 0 0 1 2.7 16 13.3 13.3 0 0 1 16 2.7 13.3 13.3 0 0 1 29.3 16 13.3 13.3 0 0 1 16 29.3zM21 18.8c-.3-.2-1.8-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.2-.3.2-.6.1a10.8 10.8 0 0 1-3.2-2 12 12 0 0 1-2.2-2.7c-.2-.4 0-.6.2-.8l.4-.5c.2-.2.2-.3.3-.5s0-.4 0-.6-.7-1.7-1-2.3c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.1 1.1-1.1 2.6 1.1 3.1 1.3 3.3 2.2 3.4 5.4 4.8c.8.3 1.4.5 1.9.6.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.1-1.5s.3-1.4.2-1.5-.2-.2-.5-.3z"/></svg>
+    </a>
+
+    <script src="main.js"></script>
+</body>
+</html>

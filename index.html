@@ -4,388 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUXURY WALK | Premium Scents</title>
-    
-    <!-- Premium Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ==========================================
-           CSS STYLES
-           ========================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --black: #050505;
-            --surface: #111111;
-            --gold: #d4af37;
-            --text: #f5f5f5;
-            --text-muted: #888;
-        }
-
-        body {
-            background-color: var(--black);
-            color: var(--text);
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* NAVBAR */
-        #navbar {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            padding: 30px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: linear-gradient(180deg, rgba(5,5,5,0.9) 0%, transparent 100%);
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            letter-spacing: 5px;
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .links a {
-            color: var(--text);
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-
-        .links a:hover { color: var(--gold); }
-
-        /* HERO & SLIDESHOW */
-        #hero {
-            position: relative;
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .slideshow {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 0;
-        }
-
-        .slide {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        /* Dark overlay so the text remains readable over the images */
-        .slide-overlay {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(5, 5, 5, 0.65); /* Adjust opacity here if text is hard to read */
-            z-index: 1;
-        }
-
-        /* HERO CONTENT */
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            animation: fadeIn 1.5s ease forwards;
-        }
-
-        .hero-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(4rem, 10vw, 8rem);
-            line-height: 1;
-            color: var(--gold);
-            text-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
-            margin-bottom: 15px;
-        }
-
-        .subtitle {
-            font-size: 1rem;
-            letter-spacing: 10px;
-            color: var(--text);
-            text-transform: uppercase;
-            margin-bottom: 40px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* SECTIONS */
-        .section {
-            padding: 100px 5vw;
-            position: relative;
-            z-index: 10;
-            background: var(--black);
-        }
-
-        .dark-bg { background: var(--surface); }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 10px;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-        }
-
-        /* PRODUCT GRID */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .product-card {
-            background: var(--surface);
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
-        }
-
-        .product-image {
-            position: relative;
-            height: 350px;
-            overflow: hidden;
-        }
-
-        .product-image img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-
-        .badge {
-            position: absolute;
-            top: 15px; right: 15px;
-            background: var(--gold);
-            color: var(--black);
-            padding: 5px 15px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .product-info {
-            padding: 30px;
-            text-align: center;
-        }
-
-        .product-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        .product-info .notes {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .product-info .price {
-            color: var(--gold);
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .whatsapp-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 15px;
-            background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .whatsapp-btn:hover {
-            background: var(--gold);
-            color: var(--black);
-        }
-
-        /* REVIEWS */
-        .review-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .review-card {
-            background: var(--black);
-            padding: 40px;
-            border: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-        }
-
-        .stars {
-            color: var(--gold);
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        .review-card p {
-            font-style: italic;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            color: #ccc;
-        }
-
-        .reviewer {
-            font-weight: 600;
-            color: var(--gold);
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-
-        /* FOOTER & FLOATING BTN */
-        footer {
-            padding: 60px 20px;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        footer h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            font-size: 2rem;
-            letter-spacing: 5px;
-            margin-bottom: 10px;
-        }
-
-        footer p {
-            color: var(--text-muted);
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: var(--gold);
-            text-decoration: none;
-        }
-
-        .floating-wa {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25D366;
-            color: white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            transition: transform 0.3s;
-        }
-
-        .floating-wa:hover {
-            transform: scale(1.1);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav id="navbar">
-        <a href="#" class="logo">LUXURY WALK</a>
+        <a href="index.html" class="logo">LUXURY WALK</a>
         <div class="links">
-            <a href="#collection">Collection</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#contact">Contact</a>
+            <a href="index.html" class="active">Home</a>
+            <a href="shop.html">Collection</a>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
 
     <section id="hero">
-        <!-- AUTOMATIC SLIDESHOW -->
-        <div class="slideshow" id="slideshow">
-            <!-- Slide 1: Golden Perfume -->
+        <div class="slideshow">
             <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1582211594531-ef84e8acaf76?q=80&w=2000&auto=format&fit=crop');"></div>
-            <!-- Slide 2: Dark/Oud Perfume -->
             <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=2000&auto=format&fit=crop');"></div>
-            <!-- Slide 3: Elegant Bottle -->
             <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=2000&auto=format&fit=crop');"></div>
         </div>
-        
-        <!-- Dark Overlay so text is readable -->
         <div class="slide-overlay"></div>
-
         <div class="hero-content">
             <h1 class="hero-logo">LUXURY<br>WALK</h1>
             <p class="subtitle">SCENTS & PERFUMES</p>
         </div>
     </section>
 
-    <!-- Product Collection Section -->
-    <section id="collection" class="section">
+    <!-- Featured Products -->
+    <section class="section">
         <div class="section-header">
-            <h2>The Signature Collection</h2>
-            <p>Discover your next signature scent.</p>
+            <h2>Featured Scents</h2>
+            <p>Our most coveted fragrances.</p>
         </div>
-
         <div class="product-grid">
+            <!-- Product 1 -->
             <div class="product-card">
                 <div class="product-image">
                     <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=800&auto=format&fit=crop" alt="Oud Wood">
@@ -395,13 +49,10 @@
                     <h3>Midnight Oud</h3>
                     <p class="notes">Amber / Sandalwood / Vanilla</p>
                     <p class="price">P 850</p>
-                    <button class="whatsapp-btn" onclick="orderViaWhatsApp('Midnight Oud', 'P 850')">
-                        <svg viewBox="0 0 32 32" width="20" height="20" fill="currentColor"><path d="M16 0A16 16 0 0 0 0 16c0 2.8.7 5.5 2 7.8L0 32l8.4-2.2A15.9 15.9 0 0 0 16 32a16 16 0 0 0 16-16A16 16 0 0 0 16 0zm0 29.3c-2.4 0-4.8-.6-6.8-1.9l-.5-.3-5 1.3 1.3-4.9-.3-.5A13.3 13.3 0 0 1 2.7 16 13.3 13.3 0 0 1 16 2.7 13.3 13.3 0 0 1 29.3 16 13.3 13.3 0 0 1 16 29.3zM21 18.8c-.3-.2-1.8-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.2-.3.2-.6.1a10.8 10.8 0 0 1-3.2-2 12 12 0 0 1-2.2-2.7c-.2-.4 0-.6.2-.8l.4-.5c.2-.2.2-.3.3-.5s0-.4 0-.6-.7-1.7-1-2.3c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.1 1.1-1.1 2.6 1.1 3.1 1.3 3.3 2.2 3.4 5.4 4.8c.8.3 1.4.5 1.9.6.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.1-1.5s.3-1.4.2-1.5-.2-.2-.5-.3z"/></svg>
-                        Order via WhatsApp
-                    </button>
+                    <button class="whatsapp-btn" onclick="orderViaWhatsApp('Midnight Oud', 'P 850')">Order via WhatsApp</button>
                 </div>
             </div>
-
+            <!-- Product 2 -->
             <div class="product-card">
                 <div class="product-image">
                     <img src="https://images.unsplash.com/photo-1582211594531-ef84e8acaf76?q=80&w=800&auto=format&fit=crop" alt="Golden Spray">
@@ -410,93 +61,22 @@
                     <h3>Gilded Rose</h3>
                     <p class="notes">Damascus Rose / Saffron / Musk</p>
                     <p class="price">P 720</p>
-                    <button class="whatsapp-btn" onclick="orderViaWhatsApp('Gilded Rose', 'P 720')">
-                        <svg viewBox="0 0 32 32" width="20" height="20" fill="currentColor"><path d="M16 0A16 16 0 0 0 0 16c0 2.8.7 5.5 2 7.8L0 32l8.4-2.2A15.9 15.9 0 0 0 16 32a16 16 0 0 0 16-16A16 16 0 0 0 16 0zm0 29.3c-2.4 0-4.8-.6-6.8-1.9l-.5-.3-5 1.3 1.3-4.9-.3-.5A13.3 13.3 0 0 1 2.7 16 13.3 13.3 0 0 1 16 2.7 13.3 13.3 0 0 1 29.3 16 13.3 13.3 0 0 1 16 29.3zM21 18.8c-.3-.2-1.8-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.2-.3.2-.6.1a10.8 10.8 0 0 1-3.2-2 12 12 0 0 1-2.2-2.7c-.2-.4 0-.6.2-.8l.4-.5c.2-.2.2-.3.3-.5s0-.4 0-.6-.7-1.7-1-2.3c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.1 1.1-1.1 2.6 1.1 3.1 1.3 3.3 2.2 3.4 5.4 4.8c.8.3 1.4.5 1.9.6.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.1-1.5s.3-1.4.2-1.5-.2-.2-.5-.3z"/></svg>
-                        Order via WhatsApp
-                    </button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=800&auto=format&fit=crop" alt="Dark Bottle">
-                </div>
-                <div class="product-info">
-                    <h3>Noir Intense</h3>
-                    <p class="notes">Black Pepper / Leather / Vetiver</p>
-                    <p class="price">P 950</p>
-                    <button class="whatsapp-btn" onclick="orderViaWhatsApp('Noir Intense', 'P 950')">
-                        <svg viewBox="0 0 32 32" width="20" height="20" fill="currentColor"><path d="M16 0A16 16 0 0 0 0 16c0 2.8.7 5.5 2 7.8L0 32l8.4-2.2A15.9 15.9 0 0 0 16 32a16 16 0 0 0 16-16A16 16 0 0 0 16 0zm0 29.3c-2.4 0-4.8-.6-6.8-1.9l-.5-.3-5 1.3 1.3-4.9-.3-.5A13.3 13.3 0 0 1 2.7 16 13.3 13.3 0 0 1 16 2.7 13.3 13.3 0 0 1 29.3 16 13.3 13.3 0 0 1 16 29.3zM21 18.8c-.3-.2-1.8-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.2-.3.2-.6.1a10.8 10.8 0 0 1-3.2-2 12 12 0 0 1-2.2-2.7c-.2-.4 0-.6.2-.8l.4-.5c.2-.2.2-.3.3-.5s0-.4 0-.6-.7-1.7-1-2.3c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.1 1.1-1.1 2.6 1.1 3.1 1.3 3.3 2.2 3.4 5.4 4.8c.8.3 1.4.5 1.9.6.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.1-1.5s.3-1.4.2-1.5-.2-.2-.5-.3z"/></svg>
-                        Order via WhatsApp
-                    </button>
+                    <button class="whatsapp-btn" onclick="orderViaWhatsApp('Gilded Rose', 'P 720')">Order via WhatsApp</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="reviews" class="section dark-bg">
-        <div class="section-header">
-            <h2>Client Experiences</h2>
-            <p>What our customers are saying.</p>
-        </div>
-        
-        <div class="review-grid">
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"The Midnight Oud is absolutely intoxicating. The delivery was fast and the packaging felt so luxurious. Will definitely order again!"</p>
-                <span class="reviewer">- Thabo M.</span>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"Ordering via WhatsApp was so easy. I asked for a recommendation for a date night and they gave me the perfect scent. 10/10 service."</p>
-                <span class="reviewer">- Sarah K.</span>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"Finally a store in Gaborone that sells authentic, high-end fragrances. Gilded Rose lasts all day on my skin."</p>
-                <span class="reviewer">- Neo B.</span>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
+    <footer>
         <h2>LUXURY WALK</h2>
         <p>Gaborone, Botswana</p>
-        <p>For inquiries: <a href="https://wa.me/267XXXXXXXXX" target="_blank">+267 7X XXX XXX</a></p>
-        <p class="copyright">&copy; 2024 Luxury Walk. All Rights Reserved.</p>
+        <p>For inquiries: <a href="https://wa.me/267XXXXXXXXX">+267 7X XXX XXX</a></p>
     </footer>
 
-    <a href="https://wa.me/267XXXXXXXXX?text=Hi%20Luxury%20Walk,%20I%20have%20a%20question%20about%20your%20perfumes." target="_blank" class="floating-wa">
+    <a href="https://wa.me/267XXXXXXXXX" class="floating-wa">
         <svg viewBox="0 0 32 32" width="35" height="35" fill="currentColor"><path d="M16 0A16 16 0 0 0 0 16c0 2.8.7 5.5 2 7.8L0 32l8.4-2.2A15.9 15.9 0 0 0 16 32a16 16 0 0 0 16-16A16 16 0 0 0 16 0zm0 29.3c-2.4 0-4.8-.6-6.8-1.9l-.5-.3-5 1.3 1.3-4.9-.3-.5A13.3 13.3 0 0 1 2.7 16 13.3 13.3 0 0 1 16 2.7 13.3 13.3 0 0 1 29.3 16 13.3 13.3 0 0 1 16 29.3zM21 18.8c-.3-.2-1.8-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.2-.3.2-.6.1a10.8 10.8 0 0 1-3.2-2 12 12 0 0 1-2.2-2.7c-.2-.4 0-.6.2-.8l.4-.5c.2-.2.2-.3.3-.5s0-.4 0-.6-.7-1.7-1-2.3c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.1 1.1-1.1 2.6 1.1 3.1 1.3 3.3 2.2 3.4 5.4 4.8c.8.3 1.4.5 1.9.6.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.1-1.5s.3-1.4.2-1.5-.2-.2-.5-.3z"/></svg>
     </a>
 
-    <script>
-        // --- AUTOMATIC SLIDESHOW LOGIC ---
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-        
-        function nextSlide() {
-            // Remove active class from current slide
-            slides[currentSlide].classList.remove('active');
-            
-            // Move to next slide (loop back to 0 if at the end)
-            currentSlide = (currentSlide + 1) % slides.length;
-            
-            // Add active class to new slide
-            slides[currentSlide].classList.add('active');
-        }
-        
-        // Change image every 4 seconds (4000ms)
-        setInterval(nextSlide, 4000);
-
-        // --- WHATSAPP INTEGRATION ---
-        function orderViaWhatsApp(productName, price) {
-            const whatsappNumber = "267XXXXXXXXX"; // REPLACE WITH ACTUAL NUMBER
-            const message = `Hello Luxury Walk! I would like to order the "${productName}" for ${price}. Is it available?`;
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-            window.open(whatsappURL, '_blank');
-        }
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
